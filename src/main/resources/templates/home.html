@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Velkommen</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+
+
+</head>
+<body>
+<h1>Velkommen til din side</h1>
+<p th:text="'Du er logget ind som ' + ${userName}"> </p>
+
+
+<a href="/wishlist">
+    <button>Se ønskelister
+    </button>
+</a>
+
+<a th:href="@{'/user/' + ${user.userId} + '/edit'}">
+    <button>Rediger Bruger</button>
+</a>
+
+
+<a href="/logout">
+  <button>Log ud
+</button>
+</a>
+
+
+</body>
+</html>

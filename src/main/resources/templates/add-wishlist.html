@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Opret ønskeseddel</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+
+</head>
+<body>
+<h2>Opret ønskeseddel</h2>
+
+
+<form th:action="@{/wishlist/create}" th:object="${wishlist}" method="post">
+    <label for="wishListName">Navn på ønskeseddel:</label>
+    <input type="text" id="wishListName" th:field="*{wishListName}" required>
+    <br><br>
+    <button type="submit">Opret</button>
+</form>
+<a href="/home">
+    <button>Tilbage</button>
+</a>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Dine ønskesedler</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+
+</head>
+<body>
+
+<h1>Dine ønskesedler</h1>
+
+
+<ul>
+    <li th:each="wishlist : ${wishlists}">
+        <span th:text="${wishlist.wishListName}"></span>
+
+        <a th:href="@{'/wishlist/' + ${wishlist.wishListID}}">
+            <button>Vis ønskeseddel</button>
+        </a>
+
+
+    </li>
+</ul>
+<a href="/wishlist/create">
+    <button>Opret ny ønskeseddel</button>
+</a>
+
+
+<a href="/home">
+    <button>Tilbage</button>
+</a>
+<ul>
+    <li th:each="wishlist : ${wishlists}">
+        <span th:text="${wishlist.wishListName}"></span>
+
+
+        <a th:href="@{'/wishlist/' + ${wishlist.wishListID}}">
+            <button>Se ønskeseddel</button>
+        </a>
+    </li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+  <meta charset="UTF-8">
+  <title th:text="${wishlist.wishListName}">Ønskeseddel</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+
+</head>
+<body>
+
+<h2 th:text="${wishlist.wishListName}">Ønskeseddel</h2>
+
+<ul>
+  <li th:each="wish : ${wishes}">
+    <strong>Ønske: </strong><span th:text="${wish.wishItemName}"></span> -
+    <strong>Beskrivelse: </strong><span th:text="${wish.wishItemDescription}"></span> -
+    <a th:href="${wish.wishUrl}" th:if="${wish.wishUrl != null and wish.wishUrl != ''}" target="_blank">Link til ønske</a>
+
+    <a th:href="@{'/wishlist/' + ${wishlist.getWishListID()} + '/edit-wish/' + ${wish.wishItemId}}">
+      <button>Rediger Ønske</button>
+    </a>
+    <a th:href="@{'/wishlist/' + ${wishlist.getWishListID()} + '/delete-wish/' + ${wish.wishItemId}}">
+      <button>Delete wish</button>
+    </a>
+  </li>
+</ul>
+<a th:href="@{'/wishlist/' + ${wishlist.wishListID} + '/add-wish'}">
+  <button>Tilføj ønske</button>
+</a>
+
+<a th:href="@{'/wishlist/' + ${wishlist.getWishListID()} + '/edit'}">
+  <button>Rediger Ønskeseddel-navn</button>
+</a>
+
+<a href="/wishlist"><button>Tilbage</button></a>
+<a th:href="@{'/wishlist/delete/confirm/' + ${wishlist.wishListID}}">
+  <button>Delete</button>
+</a>
+
+
+</body>
+</html>

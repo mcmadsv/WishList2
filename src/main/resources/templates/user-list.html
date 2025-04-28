@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="da" xmlns:th="http://www.thymeleaf.org">
+        <head>
+        <meta charset="UTF-8">
+        <title>All Users</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+
+</head>
+<body>
+<h1>All Users</h1>
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.userName}"></td>
+        <td>
+
+            <a th:href="@{'/user/' + ${user.getUserId()} + '/edit'}">
+                <button>Edit Info</button>
+            </a>
+
+            <a th:href="@{'/user/delete/' + ${user.getUserId()}}">
+                <button>Delete User</button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="/user/create">
+    <button>Create User</button>
+</a>
+<a href="/">
+    <button>Back to Home</button>
+</a>
+
+</body>
+</html>
+</title>
+</head>
+<body>
+
+</body>
+</html>
