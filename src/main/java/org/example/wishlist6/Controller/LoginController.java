@@ -27,7 +27,7 @@ public class LoginController {
             Model model
     ) {
         System.out.println("Login attempt: " + userEmail + " / " + userPassword);
-        System.out.println("Mads tester");
+
 
         User user = userService.authenticateAndGetUser(userEmail, userPassword);
 
